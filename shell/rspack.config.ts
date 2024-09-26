@@ -3,6 +3,7 @@ import {
   withModuleFederation,
   ModuleFederationConfig,
 } from '@nx/rspack/module-federation';
+import { withZephyr } from 'zephyr-webpack-plugin';
 
 import baseConfig from './module-federation.config';
 
@@ -19,5 +20,6 @@ const config: ModuleFederationConfig = {
 export default composePlugins(
   withNx(),
   withReact(),
-  withModuleFederation(config, { dts: false })
+  withModuleFederation(config, { dts: false }),
+  withZephyr()
 );
